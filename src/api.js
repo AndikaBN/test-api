@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   const fs = require('fs');
-  fs.readFile(__dirname + './data/data.json', 'utf-8', (err, data) => {
+  fs.readFile(__dirname + '/data/data.json', 'utf-8', (err, data) => {
     if (err) throw err;
     res.send(data);
   });
