@@ -1,12 +1,15 @@
 const express = require('express');
 const serverless = require('serverless-http');
+const fs = require('fs');
+const path = require('path');
+const filePath = path.join(__dirname, 'data.json');
 
 const app = express();
 const router = express.Router();
 
 router.get('/', (req, res) => {
   const fs = require('fs');
-  fs.readFile(__dirname + '/../src/data/data.json', 'utf-8', (err, data) => {
+  fs.readFile(filePath, 'utf-8', (err, data) => {
     if (err) throw err;
     res.send(data);
   });
