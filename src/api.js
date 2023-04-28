@@ -1,18 +1,17 @@
 const express = require('express');
 const serverless = require('serverless-http');
-const fs = require('fs');
-const path = require('path');
-const filePath = path.join(__dirname, 'data.json');
 
 const app = express();
 const router = express.Router();
 
+const data = {
+  name: 'Andika',
+  pekerjaan: 'android developer',
+  kesukaan: 'anak kecil'
+};
+
 router.get('/', (req, res) => {
-  const fs = require('fs');
-  fs.readFile(filePath, 'utf-8', (err, data) => {
-    if (err) throw err;
-    res.send(data);
-  });
+  res.json(data);
 });
 
 app.use('/.netlify/functions/api', router);
